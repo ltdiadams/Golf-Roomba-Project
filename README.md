@@ -3,6 +3,6 @@ A golf roomba? This search and destroy robot will find golf balls that are just 
 
 **cam.py**: test code using a laptop webcam, uses color mask to detect objects that are the color white (ie. a pesky little golf ball) and tracks said detected ball with a box using opencv 👍
 
-![Screenshot](IMG_4701.jpg)
+![Screenshot](Screen Shot 2020-08-08 at 1.46.16 AM.png)
 
 Robot and robot code to come when I actually make it..

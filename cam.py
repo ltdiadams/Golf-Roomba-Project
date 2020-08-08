@@ -24,18 +24,18 @@ while ret:
     # threshold the HSV image to get only white color
     mask = cv2.inRange(hsv, lower_white, upper_white)
     # residual pixels matching the color mask...
-    res = cv2.bitwise_and(img,img, mask= mask)
+    res = cv2.bitwise_and(img, img, mask= mask)
     
     # find contours for box tracking
     contours, heirarchy = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     cont_sorted = sorted(contours, key=cv2.contourArea, reverse=True)[:5]
-    x,y,w,h = cv2.boundingRect(cont_sorted[0])
-    cv2.rectangle(img,(x,y),(x+w,y+h),(0,0,255),5)
+    x, y, width, height = cv2.boundingRect(cont_sorted[0])
+    cv2.rectangle(img,(x,y),(x+width,y+height),(0,0,255),2)
     
     # three windows, og image with tracking, residual pixels, grayscale
-    cv2.imshow('image',img) # og
-    cv2.imshow('mask',mask) # grayscale
-    cv2.imshow('res',res)   # residual
+    cv2.imshow('image', img) # og
+    cv2.imshow('mask', mask) # grayscale
+    cv2.imshow('res', res)   # residual
 
     key = cv2.waitKey(20)
     if key == 27: # close on ESC
